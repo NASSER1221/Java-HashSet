@@ -24,13 +24,10 @@ class Employee {
      // An employee is equal to another if their employeeId is the same.
      @Override
      public boolean equals(Object o) {
-         if (o==Employee.this){
-             if(employeeId==getEmployeeId()){
-                 return false;
-             }
-             // Your code here
-         }
-         return true; // Placeholder
+         if (this==o) return true;
+         if (o==null || o.getClass()!=getClass()) return false;
+         Employee employee= (Employee) o ;
+         return employee.employeeId==employeeId;
      }
 
      // TO-DO: Implement hashCode()
@@ -55,6 +52,6 @@ class HRSystem {
                // Your code here. This should be a one-line implementation.
 
 
-        return new TreeSet<>(allEmployees); // Placeholder
+        return new HashSet<>(allEmployees); // Placeholder
     }
 }
